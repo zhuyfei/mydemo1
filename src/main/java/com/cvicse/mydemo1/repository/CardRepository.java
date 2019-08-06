@@ -10,11 +10,11 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface CardRepository extends CrudRepository<Card,Long> {
+public interface CardRepository extends CrudRepository<Card,Integer> {
     Card save(Card card);
-    void deleteById(Long id);
+    void deleteById(Integer id);
     List<Card> findAll();
     void deleteAll();
-    Optional<Card> findById(Long id);
+    Optional<Card> findById(Integer id);
 
 }

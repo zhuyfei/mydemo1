@@ -30,8 +30,8 @@ public class CardServiceTest {
 
         Card card1 = new Card();
         Card card2 = new Card();
-        card1.setId(1l);
-        card2.setId(2l);
+        card1.setId(1);
+        card2.setId(2);
         card1.setTitle("一号");
         card1.setContent("一号你好");
         card2.setTitle("二号");
@@ -41,7 +41,7 @@ public class CardServiceTest {
 
         Mockito.when(cardRepository.findById(card1.getId())).thenReturn(Optional.of(card1));
         Mockito.when(cardRepository.findById(card2.getId())).thenReturn(Optional.of(card2));
-        Mockito.when(cardRepository.findById(0l)).thenReturn(null);
+        Mockito.when(cardRepository.findById(0)).thenReturn(null);
         Mockito.when(cardRepository.save(new Card())).thenReturn(card2);
         Mockito.when(cardRepository.save(new Card())).thenReturn(card1);
         Mockito.when(cardRepository.findAll()).thenReturn(cardList);
@@ -54,8 +54,8 @@ public class CardServiceTest {
 
         Card card1 = new Card();
         Card card2 = new Card();
-        card1.setId(1l);
-        card2.setId(2l);
+        card1.setId(1);
+        card2.setId(2);
         card1.setTitle("3号");
         card1.setContent("3号你好");
         card2.setTitle("4号");

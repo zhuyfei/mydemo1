@@ -59,19 +59,19 @@ public class CardRepositoryTest {
     @Test
     public void findByIdTest(){
         Card card = new Card();
-        card.setId(1l);
+        card.setId(1);
         card.setTitle("你好a");
         card.setContent("nihaoa");
 
         Card card1 = new Card();
-        card.setId(28l);
+        card.setId(28);
         card1.setTitle("你好aa");
         card1.setContent("nihaoaa");
 
         cardRepository.save(card);
         cardRepository.save(card1);
 
-        System.out.println(cardRepository.findById(1l));
+        System.out.println(cardRepository.findById(1));
     }
 
     @Test
@@ -124,12 +124,12 @@ public class CardRepositoryTest {
     @Test
     public  void updateText(){
         Card card = new Card();
-        card.setId(1l);
+        card.setId(1);
         card.setTitle("你");
         card.setContent("ni");
         cardRepository.save(card);
         card = new Card();
-        card.setId(1l);
+        card.setId(1);
         card.setTitle("啊");
         card.setContent("啊");
         cardRepository.save(card);

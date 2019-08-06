@@ -14,6 +14,11 @@ public class CardServiceImpl implements CardService{
     @Autowired
     CardRepository cardRepository;
 
+    /**
+     * 添加Card
+     * @param card
+     * @return
+     */
     @Override
     public Card sava(Card card) {
         if(card==null){
@@ -22,24 +27,43 @@ public class CardServiceImpl implements CardService{
         return cardRepository.save(card);
     }
 
+    /**
+     * 根据id删除Card
+     * @param id
+     */
     @Override
-    public void deleteById(Long id) {
+    public void deleteById(int id) {
 
        cardRepository.deleteById(id);
     }
 
+    /**
+     * 根据id查找Card
+     * @param id
+     * @return
+     */
     @Override
-    public Card findById(Long id) {
+    public Card findById(int id) {
         return cardRepository.findById(id).get();
     }
 
+    /**
+     * 查找所有Card
+     * @return
+     */
     @Override
     public List<Card> findAll() {
         return cardRepository.findAll();
     }
 
+    /**
+     * 更新Card
+     * @param id
+     * @param card
+     * @return
+     */
     @Override
-    public Card update(Long id, Card card) {
+    public Card update(int id, Card card) {
        Card card1 = cardRepository.findById(id).get();
        card1.setId(card.getId());
        card1.setTitle(card.getTitle());

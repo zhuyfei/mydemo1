@@ -11,6 +11,14 @@ public class Card {
     private String title;
     private String content;
 
+    public Card(){
+
+    }
+
+    public Card(String content) {
+        this.content = content;
+    }
+
     public int getId() {
         return id;
     }

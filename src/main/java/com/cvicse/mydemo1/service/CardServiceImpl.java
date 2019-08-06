@@ -20,10 +20,7 @@ public class CardServiceImpl implements CardService{
      * @return
      */
     @Override
-    public Card sava(Card card) {
-        if(card==null){
-            return null;
-        }
+    public Card save(Card card) {
         return cardRepository.save(card);
     }
 
@@ -68,6 +65,7 @@ public class CardServiceImpl implements CardService{
        card1.setId(card.getId());
        card1.setTitle(card.getTitle());
        card1.setContent(card.getContent());
+       cardRepository.save(card1);
        return card1;
     }
 }

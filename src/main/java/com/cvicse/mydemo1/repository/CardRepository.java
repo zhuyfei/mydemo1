@@ -11,10 +11,5 @@ import java.util.Optional;
 
 @Repository
 public interface CardRepository extends JpaRepository<Card,Integer> {
-    Card save(Card card);
-    void deleteById(int id);
-    List<Card> findAll();
-    void deleteAll();
-    Optional<Card> findById(int id);
 
 }

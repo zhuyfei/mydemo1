@@ -55,17 +55,14 @@ public class CardServiceImpl implements CardService{
 
     /**
      * 更新Card
-     * @param id
      * @param card
      * @return
      */
     @Override
-    public Card update(int id, Card card) {
-       Card card1 = cardRepository.findById(id).get();
-       card1.setId(card.getId());
+    public Card update( Card card) {
+       Card card1 = cardRepository.findById(card.getId()).get();
        card1.setTitle(card.getTitle());
        card1.setContent(card.getContent());
-       cardRepository.save(card1);
-       return card1;
+       return cardRepository.save(card1);
     }
 }

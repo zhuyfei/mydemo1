@@ -116,7 +116,7 @@ public class CardControllerTests {
         object.put("id","160");
         object.put("title",card.getTitle());
         object.put("content",card.getContent());
-        MvcResult mvcResult =  mvc.perform(put("/api/cards/"+160).
+        MvcResult mvcResult =  mvc.perform(put("/api/cards/").
                 content(object.toJSONString()).
                 contentType(MediaType.APPLICATION_JSON)).
                 andExpect(status().isOk())

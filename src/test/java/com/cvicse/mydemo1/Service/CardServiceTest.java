@@ -78,7 +78,7 @@ public class CardServiceTest {
     public void updateTest(){
 
         Card card1 = new Card("测试2");
-        Card card = cardService.update(1,card1);
+        Card card = cardService.update(card1);
         assertThat(card).extracting("content").
                 contains("测试2");
     }

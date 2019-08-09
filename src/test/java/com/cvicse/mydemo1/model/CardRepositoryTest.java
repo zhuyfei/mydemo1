@@ -124,14 +124,9 @@ public class CardRepositoryTest {
     @Test
     public  void updateText(){
         Card card = new Card();
-        card.setId(1);
-        card.setTitle("你");
+        card.setId(167);
+        card.setTitle("yihao");
         card.setContent("ni");
-        cardRepository.save(card);
-        card = new Card();
-        card.setId(1);
-        card.setTitle("啊");
-        card.setContent("啊");
         cardRepository.save(card);
         Iterable iterable = cardRepository.findAll();
         Iterator iterator = iterable.iterator();

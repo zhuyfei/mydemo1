@@ -8,7 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.List;
+import java.util.*;
 
 @RestController
 
@@ -23,18 +23,22 @@ public class CardController {
      * @return
      */
     @PostMapping("/api/card")
-    public Card saveCard(@RequestBody Card card){
-        return cardService.save(card);
-    }
+    public List<Card> saveCard(@RequestBody Card card) {
+//        List<Card> list = new ArrayList() ;
+        cardService.save(card);
+        return cardService.findAll();
+        }
+
 
     /**
      * 根据id删除Card
      * @param id
      */
     @DeleteMapping("/api/cards/{id}")
-    public void deleteCardById(@PathVariable("id")int id){
+    public List<Card> deleteCardById(@PathVariable("id")int id){
         try {
             cardService.deleteById(id);
+            return cardService.findAll();
         } catch (CardNotFoundException e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND,"not found",e);
         }
@@ -66,13 +70,13 @@ public class CardController {
 
     /**
      * 更新Card
-     * @param id
      * @param card
      */
-    @PutMapping("/api/cards/{id}")
-    public Card updateCard(@PathVariable("id") int id,@RequestBody Card card){
+    @PutMapping("/api/cards")
+    public List<Card> updateCard(@RequestBody Card card){
         try {
-            return cardService.update(id,card);
+             cardService.update(card);
+            return cardService.findAll();
         }catch (CardNotFoundException e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND,"not found",e);
         }
